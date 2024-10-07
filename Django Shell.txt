@@ -13,6 +13,6 @@ game3 = Game.objects.create(title="Game C", cost=20.00, size=2.00, description="
 
 # Устанавливаем владельцев для каждой игры
 Game.objects.get(title=game1.title).buyer.set((buyer1, buyer2,))
-Game.objects.get(title=game2.title).buyer.set((buyer1,buyer2,))
+Game.objects.get(title=game2.title).buyer.set((buyer1, buyer2,))
 Game.objects.get(title=game3.title).buyer.set((buyer1, buyer3,))
 
