@@ -1,0 +1,40 @@
+** Клонируем проект **
+   Кнопка создания проекта "from Version Control"
+   Вкладка Repository URL > URL > https://github.com/***.git
+   В терминале:
+   python -m venv venv
+   .\venv\Scripts\activate
+
+   Вкладка Project Structure (Ctrl+Alt+Shift+S)
+   Вкладка Project
+   SDK > Add Python SDK
+   > Existing environment > кнопка "..."
+   (Подтверждаем путь к папке с \venv\Scripts\python.exe)
+***********************
+
+** ЗАВИСИМОСТИ **
+    pip install --upgrade pip ИЛИ python.exe -m pip install --upgrade pip
+    pip install django
+    pip freeze > requirements.txt
+*****************
+
+** Django cmd **
+django-admin startproject Django
+Корневую папку Django нужно удалить из проекта (иначе конфликт путей)
+cmd для запуска сервера из каталога проекта:
+    python Django\manage.py runserver
+cmd для создания приложения:
+    python Django\manage.py startapp task1
+	python manage.py startapp example
+Создание скрипта для запуска:
+в "Python" конфигурации:
+Script = manager.py
+Script parameters = runserver
+Working directory = $ProjectFileDir$\Module19
+
+** ИНИЦИАЛИЗАЦИЯ БД **
++ Добавляем свой проект, заполняем "models" структурой таблицы
+python .\manage.py makemigrations
+python .\manage.py migrate
+* python .\manage.py createsuperuser
+
