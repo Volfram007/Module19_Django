@@ -1,0 +1,18 @@
+python manage.py shell
+from task1.models import Buyer, Game
+
+# Создание 3 покупателей
+buyer1 = Buyer.objects.create(name="User1", balance=100.00, age=20)
+buyer2 = Buyer.objects.create(name="User2", balance=150.00, age=24)
+buyer3 = Buyer.objects.create(name="User3", balance=100.00, age=15)
+
+# Создание 3 игр
+game1 = Game.objects.create(title="Game A", cost=30.00, size=5.00, description="Описание A", age_limited=True)
+game2 = Game.objects.create(title="Game B", cost=40.00, size=10.00, description="Описание B", age_limited=True)
+game3 = Game.objects.create(title="Game C", cost=20.00, size=2.00, description="Описание C", age_limited=False)
+
+# Устанавливаем владельцев для каждой игры
+Game.objects.get(title=game1.title).buyer.set((buyer1, buyer2,))
+Game.objects.get(title=game2.title).buyer.set((buyer1,buyer2,))
+Game.objects.get(title=game3.title).buyer.set((buyer1, buyer3,))
+
