@@ -1,0 +1,47 @@
+python manage.py shell
+
+from task4.models import GameNews
+from datetime import date
+
+GameNews.objects.create(
+    title="Первая статья",
+    content="Содержание первой статьи",
+    author="admin",
+    published_date=date(2024, 10, 8),
+)
+GameNews.objects.create(
+    title="Вторая статья",
+    content="Содержание второй статьи",
+    author="user1",
+    published_date=date(2023, 5, 10),
+)
+GameNews.objects.create(
+    title="Третья статья",
+    content="Содержание третьей статьи",
+    author="user2",
+    published_date=date.today(),
+)
+GameNews.objects.create(
+    title="Пятая статья",
+    content="Содержание пятой статьи",
+    author="admin",
+    published_date=date.today(),
+)
+
+post = GameNews.objects.get(id=1)
+post.title = "Обновленный заголовок первой статьи"
+post.save()
+
+all_posts = GameNews.objects.all()
+for post in all_posts:
+    print(post.title, post.author, post.published_date)
+
+Фильтрация статей, опубликованных в 2024 году:
+post_2024 = GameNews.objects.filter(published_date__year=2024)
+for post in post_2024:
+    print(post.title, post.published_date)
+
+Фильтрация статей, созданных пользователем admin:
+admin_post = GameNews.objects.filter(author='admin')
+for post in admin_post:
+    print(post.title, post.author)
