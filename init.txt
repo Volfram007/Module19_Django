@@ -22,19 +22,21 @@
 django-admin startproject Django
 Корневую папку Django нужно удалить из проекта (иначе конфликт путей)
 cmd для запуска сервера из каталога проекта:
-    python Django\manage.py runserver
+    python .\manage.py runserver
 cmd для создания приложения:
-    python Django\manage.py startapp task1
-	python manage.py startapp example
+    python .\manage.py startapp task
 Создание скрипта для запуска:
 в "Python" конфигурации:
-Script = manager.py
+Script = manage.py
 Script parameters = runserver
-Working directory = $ProjectFileDir$\Module19
+Working directory = $ProjectFileDir$
 
 ** ИНИЦИАЛИЗАЦИЯ БД **
 + Добавляем свой проект, заполняем "models" структурой таблицы
 python .\manage.py makemigrations
 python .\manage.py migrate
 * python .\manage.py createsuperuser
+
+** PostgreSQL **
+pip install psycopg2
 

@@ -1,0 +1,270 @@
+/* Стили для контейнера .box */
+.box {
+/* Применяет размытие к фону элемента */
+/*        backdrop-filter: blur(20px);*/
+/* Скругляет углы элемента */
+    border-radius: 5px;
+    /* Задает цвет фона с прозрачностью */
+    background-color: rgba(255, 255, 255, 0.10);
+    /* Добавляет тень вокруг элемента */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+    /* Устанавливает внутренние отступы */
+    padding: 10px;
+}
+
+/* Стили для вкладок */
+.tabs {
+    display: flex;
+    justify-content: space-between; /* Размещает элементы по краям */
+}
+.tab-links {
+    display: flex;
+}
+
+.tab-register {
+    display: flex;
+}
+.tab,
+.tabLink {
+/* Существующие стили */
+    backdrop-filter: blur(20px);
+    background: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 22px;
+    padding: 5px 10px;
+}
+.tabLink {
+    background-color: rgba(144, 168, 80);
+    margin-right: 10px;
+}
+.tab {
+    margin-right: 10px;
+
+}
+/*.tab {*/
+/* Применяет размытие к фону элемента */
+/*    backdrop-filter: blur(20px);*/
+/*    *//* Устанавливает фон как прозрачный */
+/*    background: none;*/
+/*    *//* Добавляет тень вокруг элемента */
+/*    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);*/
+/*    *//* Изменяет курсор на указатель при наведении */
+/*    cursor: pointer;*/
+/*    *//* Скругляет углы элемента */
+/*    border-radius: 5px 5px 5px 5px;*/
+/*    font-size: 22px;*/
+/*    *//* Устанавливает правый отступ */
+/*    margin-right: 10px;*/
+/*    *//* Отображает элемент как inline-block */
+/*    display: inline-block;*/
+/*    *//* Устанавливает внутренние отступы */
+/*    padding: 5px 10px;*/
+/*}*/
+/*.tabLink {*/
+/* Применяет размытие к фону элемента */
+/*    backdrop-filter: blur(20px);*/
+/*    *//* Устанавливает фон как прозрачный */
+/*    *//*    background: none;*/
+/*    background-color: rgba(144, 168, 80);*/
+/*    *//* Добавляет тень вокруг элемента */
+/*    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);*/
+/*    *//* Изменяет курсор на указатель при наведении */
+/*    cursor: pointer;*/
+/*    *//* Скругляет углы элемента */
+/*    border-radius: 5px 5px 5px 5px;*/
+/*    font-size: 22px;*/
+/*    *//* Устанавливает правый отступ */
+/*    margin-right: 10px;*/
+/*    *//* Отображает элемент как inline-block */
+/*    display: inline-block;*/
+/*    *//* Устанавливает внутренние отступы */
+/*    padding: 5px 10px;*/
+/*}*/
+/* Стили для активной вкладки */
+.tab.active {
+/* Устанавливает цвет фона для активной вкладки */
+    background-color: #c6c1c1;
+    /* Удаляет нижнюю границу для активной вкладки */
+    border-bottom: none;
+}
+
+/* Стили для содержимого вкладки */
+.tab-content {
+/* Скрывает содержимое вкладки */
+    display: none;
+}
+
+/* Стили для активного содержимого вкладки */
+.tab-content.active {
+/* Отображает содержимое вкладки */
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+/*.align-left {*/
+/*    justify-content: flex-start; *//* Кнопки выравнены по левому краю */
+/*}*/
+
+/*.align-right {*/
+/*    justify-content: flex-end; *//* Кнопки выравнены по правому краю */
+/*}*/
+
+/* Стили для формы*/
+form {
+/* Добавление размытия фона */
+    backdrop-filter: blur(20px);
+    /* Граница формы */
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    /* Радиус скругления углов формы */
+    border-radius: 10px;
+    /* Цвет фона формы с прозрачностью */
+    background-color: rgba(255, 255, 255, 0.10);
+    /* Внутренние отступы формы: 50px сверху и снизу, 35px слева и справа */
+    padding: 50px 35px;
+    /* Тень от формы */
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    /* Ширина формы */
+    width: 400px;
+    /* Высота формы */
+    height: 400px;
+    /* Отступ сверху: позиционирует форму на 30% родительского элемента по вертикали */
+    top: 100px;
+    /* Отступ слева: позиционирует форму на 50% родительского элемента по горизонтали */
+    left: 50%;
+    /* Позиционирование формы: абсолютное позиционирование относительно ближайшего позиционированного предка */
+    position: absolute;
+    /* Смещение формы от начальной позиции: центрирование по горизонтали и вертикали */
+    transform: translate(-50%);
+}
+
+/* Стили для всех вложенных элементов внутри формы */
+form * {
+/* Убираем границу у всех вложенных элементов формы */
+    border: none;
+    /* Устанавливаем цвет текста белым */
+    color: #ffffff;
+    /* Семейство шрифта: 'Poppins' с запасным sans-serif */
+    font-family: 'Poppins', sans-serif;
+    /* Интервал между буквами: 0.5px */
+    letter-spacing: 0.5px;
+    /* Убираем контур (outline) при фокусе на элементах */
+    outline: none;
+}
+
+/* Стили для заголовков h3 внутри формы */
+form h3 {
+/* Размер шрифта заголовка */
+    font-size: 32px;
+    /* Жирность шрифта заголовка */
+    font-weight: 500;
+    /* Межстрочное расстояние для заголовка */
+    line-height: 42px;
+    /* Выравнивание текста по центру */
+    text-align: center;
+    /* Отступ сверху заголовка: сдвигает заголовок вверх */
+    margin-top: -20px;
+}
+h1 {
+    font-size: 36px;
+    /*    line-height: 40px;*/
+    /*    margin: 1em 0 .6em 0;*/
+    font-weight: normal;
+    /*    color: white;*/
+    /*    font-family: 'Hammersmith One', sans-serif;*/
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+    position: relative;
+    color: #6Cf;
+}
+
+ul.game-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.game-list li {
+/*    background-color: #f9f9f9;*/
+    border: 1px solid #ddd;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 4px;
+    color: #dac881;
+    /* Задает цвет фона с прозрачностью */
+    background-color: rgba(255, 255, 255, 0.10);
+    font-size: 22px;
+    /*    font-weight: normal;*/
+}
+
+ul.game-list li:hover {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+
+.game-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.game-table th,
+.game-table td {
+/*    Стилизует заголовки и ячейки таблицы с границами, отступами и выравниванием текста*/
+    border: 1px solid #ddd;
+/*    background-color: #404144;*/
+    padding: 12px;
+    text-align: left;
+    color: #ca992f;
+    font-size: 22px;
+}
+
+.game-table th {
+/*    фон для заголовков*/
+    background-color: #4c654bf0;
+    font-weight: bold;
+}
+
+.game-table tr:nth-child(even) {
+/*    Задает полосатый эффект для строк таблицы*/
+    background-color: #3e4145;
+}
+
+.game-table tr:hover {
+/*    Добавляет эффект подсветки при наведении на строку*/
+    background-color: #6d727a;
+}
+
+/* Если строка с сообщением об отсутствии игр */
+.game-table tr:empty + tr td {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}
+
+.game-table img {
+    display: block;
+    /* Скругляет углы элемента */
+    border-radius: 6px;
+    /* Задает цвет фона с прозрачностью */
+    background-color: rgba(225, 199, 87, 0.9);
+}
+/* Стили для сообщений об ошибках и успешных операциях */
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.message {
+    color: green;
+    text-align: center;
+    margin-top: 10px;
+}

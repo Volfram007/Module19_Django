@@ -1,0 +1,92 @@
+{% extends 'task3/layout.html' %}
+{% load static %}
+
+{% block css_style %}
+<link rel="stylesheet" href=" {% static 'task3/css/Background.css' %}">
+<link rel="stylesheet" href=" {% static 'task3/css/main.css' %}">
+<link rel="stylesheet" href=" {% static 'task3/css/BtnAnim.css' %}">
+<link rel="stylesheet" href=" {% static 'task3/css/InputAnim.css' %}">
+<!--<link rel="stylesheet" href=" {% static 'task3/css/Snow.css' %}">-->
+{% endblock %}
+
+{% block tabMenu %}
+<div class="tabs">
+    <div class="tab-register">
+        <div class="tabLink" onclick="window.location.href='/task3db'">Заполнить БД</div>
+        <div class="tab {% if tab_act == 'login' %}active{% endif %}" onclick="openTab('login')">Вход</div>
+        <div class="tab {% if tab_act == 'register' %}active{% endif %}" onclick="openTab('register')">Регистрация</div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!--<div class="snow">-->
+<!--</div>-->
+
+
+<!-- Форма входа/регистрации -->
+<form id="auth-form" class="tab-content active" method="POST">
+    {% csrf_token %}
+    <input type="hidden" id="tab_act" name="tab_act" value="{{ tab_act|default:'login' }}">
+    <h3 id="form-title">{% if tab_act == 'login' %}Вход{% else %}Регистрация{% endif %}</h3>
+
+    <input type="text" name="username" maxlength="30" id="username" placeholder="Логин" required>
+    <input type="password" name="password" minlength="1" id="password" placeholder="Пароль" >
+
+    <div id="register-fields" class="{% if tab_act == 'register' %}visible{% else %}hidden{% endif %}">
+        <input type="password" name="repeat_password" minlength="1" id="repeat_password"
+               placeholder="Повторите пароль">
+
+        <input type="number" name="age" maxlength="3" id="age" placeholder="Возраст" value="0">
+    </div>
+
+    <button class="glow-on-hover" type="submit" id="submit-button">Войти</button>
+
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if message %}
+    <p class="message">{{ message }}</p>
+    {% endif %}
+</form>
+
+
+<script>
+    function openTab(tabName) {
+        // Управление отображением вкладок
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        document.querySelector(`[onclick="openTab('${tabName}')"]`).classList.add('active');
+
+        // Управление полями формы
+        const registerFields = document.getElementById('register-fields');
+        const repeatPasswordField = document.getElementById("repeat_password");
+        const formTitle = document.getElementById('form-title');
+        const submitButton = document.getElementById('submit-button');
+        const formAct = document.getElementById('tab_act');
+
+        if (tabName === 'login') {
+            registerFields.style.display = 'none';
+            formTitle.textContent = 'Вход';
+            submitButton.textContent = 'Войти';
+            document.getElementById("repeat_password").value = "";
+            document.getElementById("age").value = "";
+            // Удаляем атрибут required
+            repeatPasswordField.removeAttribute('required');
+            formAct.value = 'login';
+        } else {
+            registerFields.style.display = 'block';
+            // Добавляем атрибут required
+            repeatPasswordField.setAttribute('required', '');
+            formTitle.textContent = 'Регистрация';
+            submitButton.textContent = 'Зарегистрироваться';
+            formAct.value =  'register';
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        const formAct = document.getElementById('tab_act').value;
+        openTab(formAct);
+    });
+</script>
+{% endblock %}

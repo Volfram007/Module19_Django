@@ -1,0 +1,26 @@
+{% extends 'task3/layout.html' %}
+{% load static %}
+
+{% block css_style %}
+<link rel="stylesheet" href="{% static 'task3/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'task3/css/Background.css' %}">
+{% endblock %}
+
+{% block tabMenu %}
+<div class="tab-register">
+    {% if username %}
+    <div class="tabLink" onclick="window.location.href='/logout/'">Выйти</div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<h1>Корзина</h1>
+<ul class="game-list">
+    {% for game in games %}
+    <li>{{ game.title }} - {{ game.cost }} руб.</li>
+    {% empty %}
+    <li>Корзина пуста.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

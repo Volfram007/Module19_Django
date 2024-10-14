@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ TitlePage }}</title>
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+<div class="tabs">
+    <div class="tab-links">
+        <div class="tab" onclick="window.location.href='/admin/'">Admin`ка</div>
+        <div class="tabLink" onclick="window.location.href='/news/'">Главная</div>
+    </div>
+
+    {% block tabMenu %}
+
+    {% endblock %}
+</div>
+
+
+{% block content %}
+{% endblock %}
+</body>
+</html>

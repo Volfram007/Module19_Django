@@ -1,0 +1,47 @@
+body {
+    background-color: #2b2d30;
+}
+
+.background {
+    width: 430px;
+    height: 540px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.news-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #ec531e;
+}
+
+.news-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #1eac32;
+}
+
+.news-meta {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #888;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination .step-links a,
+.pagination .current-page {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.pagination .current-page {
+    color: #6cb777;
+}

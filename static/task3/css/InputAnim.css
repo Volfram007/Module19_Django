@@ -1,0 +1,73 @@
+/* Стили для текстовых, паролей и числовых полей внутри элемента с классом .box */
+.tab-content input[type="text"],
+.tab-content input[type="password"],
+.tab-content input[type="number"] {
+/* Устанавливает цвет текста белым */
+    color: white;
+    /* Удаляет контур (outline) при фокусе на элементе */
+    outline: none;
+    /* Задает фоновый цвет как прозрачный */
+    background: none;
+    /* Удаляет любую существующую границу */
+    border: 0;
+    /* Добавляет новую границу: 2px сплошная линия с синим цветом */
+    border: 2px solid #3498db;
+    /* Скругляет углы элемента радиусом 24px */
+    border-radius: 24px;
+    /* Устанавливает размер шрифта на 20px */
+    font-size: 20px;
+    /* Делает элемент блочным, позволяя ему занимать всю доступную ширину */
+    display: block;
+    /* Устанавливает внутренние отступы: 14px сверху и снизу, 10px слева и справа */
+    padding: 14px 10px;
+    /* Центрирует элемент по горизонтали внутри родительского контейнера */
+    margin: 20px auto;
+    /* Устанавливает текст по центру внутри элемента */
+    text-align: center;
+    /* Устанавливает плавный переход всех изменяемых свойств за 0.25 секунды */
+    transition: 0.25s;
+    /* Задает фиксированную ширину элемента 200px */
+    width: 200px;
+}
+
+/* Стили для плейсхолдеров внутри всех элементов формы */
+::placeholder {
+/* Устанавливает цвет текста плейсхолдера серым */
+    color: #e5e5e5;
+}
+
+/* Стили для полей ввода внутри .box при фокусе */
+.tab-content input[type="text"]:focus,
+.tab-content input[type="password"]:focus,
+.tab-content input[type="number"]:focus {
+/* Увеличивает ширину элемента до 280px при фокусе */
+    width: 280px;
+    /* Запускает анимацию colorChange длительностью 9 секунд, чередуя направления */
+    animation: colorChange 9s alternate;
+    /* Устанавливает плавный переход высоты за 0.3 секунды и ширины за 0.3 секунды с задержкой 0.1 секунды */
+    transition: height 0.3s, width 0.3s 0.1s;
+}
+
+@keyframes colorChange {
+    0% { border-color: #007bff; }
+    5% { border-color: #6610f2; }
+    10% { border-color: #6f42c1; }
+    15% { border-color: #e83e8c; }
+    20% { border-color: #dc3545; }
+    25% { border-color: #fd7e14; }
+    30% { border-color: #ffc107; }
+    35% { border-color: #28a745; }
+    40% { border-color: #20c997; }
+    45% { border-color: #17a2b8; }
+    50% { border-color: #6c757d; }
+    55% { border-color: #343a40; }
+    60% { border-color: #007bff; }
+    65% { border-color: #6c757d; }
+    70% { border-color: #28a745; }
+    75% { border-color: #17a2b8; }
+    80% { border-color: #ffc107; }
+    85% { border-color: #dc3545; }
+    90% { border-color: #343a40; }
+    95% { border-color: #28a745; }
+    100% { border-color: #20c997; }
+}

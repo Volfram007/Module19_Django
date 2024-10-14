@@ -1,0 +1,59 @@
+/*<div class="underline">
+  My name is <a href="http://frikishaan.xyz" target="_blank">Ishaan Sheikh</a>
+</div>
+
+<div class="background">
+  I'm a <a href="https://github.com/sheikh005" target="_blank">Software Engineer</a>💻
+</div>*/
+.underline {
+    font-size: 35px;
+}
+
+.underline a {
+    text-decoration: none;
+    color: #1abc9c;
+    position: relative;
+}
+
+.underline a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #1abc9c;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.underline a:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.background {
+    font-size: 28px;
+    margin-top: 1rem;
+}
+
+.background a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #34495e;
+    background-image: linear-gradient(180deg, #1abc9c 50%, #16a085 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.1em;
+    background-position: 0 88%;
+    transition: background-size 0.25s ease-in;
+    border-radius: 4px;
+    padding-bottom: 4px;
+}
+
+.background a:hover {
+    background-size: 100% 100%;
+}

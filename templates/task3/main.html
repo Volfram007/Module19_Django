@@ -1,0 +1,27 @@
+{% extends 'task3/layout.html' %}
+{% load static %}
+
+{% block css_style %}
+<link rel="stylesheet" href="{% static 'task3/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'task3/css/Background.css' %}">
+{% endblock %}
+
+{% block tabMenu %}
+<div class="tab-register">
+    {% if username %}
+    <div class="tabLink" onclick="window.location.href='/logout/'">Выйти</div>
+    {% else %}
+    <div class="tabLink" onclick="window.location.href='/auth'">Регистрация</div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+{% if username %}
+<h1>Привет, {{ username }}</h1>
+{% else %}
+<h1>Главная страница</h1>
+{% endif %}
+
+
+{% endblock %}

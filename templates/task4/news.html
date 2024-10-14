@@ -1,0 +1,53 @@
+{% extends 'task4/layout.html' %}
+{% load static %}
+{% block style %}
+<title>{{ TitlePage }}</title>
+<link rel="stylesheet" href="{% static 'task3/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'task3/css/Background.css' %}">
+{% endblock %}
+{% block tabMenu %}
+<div class="tabs">
+    <div class="tab-register">
+        <div class="tabLink" onclick="window.location.href='/task4db'">Заполнить БД</div>
+<!--        <div class="tab {% if tab_act == 'login' %}active{% endif %}" onclick="openTab('login')">Вход</div>-->
+<!--        <div class="tab {% if tab_act == 'register' %}active{% endif %}" onclick="openTab('register')">Регистрация</div>-->
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="news-container">
+    <h1>{{ TitlePage }}</h1>
+    <div class="news-list">
+        {% for news in page_obj %}
+        <div class="news-item">
+            <h2>{{ news.title }}</h2>
+            <p>{{ news.content }}</p>
+            <div class="news-meta">
+                <span>Автор: {{ news.author }}</span>
+                <span>Дата публикации: {{ news.published_date }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; первая</a>
+                <a href="?page={{ page_obj.previous_page_number }}">предыдущая</a>
+            {% endif %}
+
+            <span class="current-page">
+                Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">следующая</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">последняя &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endblock %}

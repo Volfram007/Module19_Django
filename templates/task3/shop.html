@@ -1,0 +1,54 @@
+{% extends 'task3/layout.html' %}
+{% load static %}
+
+{% block css_style %}
+<link rel="stylesheet" href="{% static 'task3/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'task3/css/Background.css' %}">
+{% endblock %}
+
+{% block tabMenu %}
+<div class="tab-register">
+    {% if username %}
+    <div class="tabLink" onclick="window.location.href='/logout/'">Выйти</div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<h1>Магазин</h1>
+<table class="game-table">
+    <thead>
+    <tr>
+        <th>Игра</th>
+        <th>Цена</th>
+        <th>Размер</th>
+        <th>Описание</th>
+        <th>Возраст</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for game in games %}
+    <tr>
+        <td>{{ game.title }}</td>
+        <td>{{ game.cost }} руб.</td>
+        <td>{{ game.size }} байт</td>
+
+        <td>{{ game.description }}</td>
+        <td>
+            {% if not game.age_limited %}
+            <img src="https://icon-icons.com/downloadimage.php?id=83987&root=1239/PNG/32/&file=baby1_83987.png"
+                 alt="Для детей">
+            {% endif %}
+        </td>
+        <td>
+            <button class="tabLink" onclick="{{ game.id }}">Купить</button>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4">Отсутствуют в наличии</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

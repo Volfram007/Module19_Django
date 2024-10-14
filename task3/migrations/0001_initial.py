@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('size', models.DecimalField(decimal_places=2, max_digits=6, verbose_name='Размер')),
                 ('description', models.TextField(verbose_name='Описание')),
                 ('age_limited', models.BooleanField(default=False, verbose_name='Ограничение')),
-                ('buyer', models.ManyToManyField(to='task1.buyer')),
+                ('buyer', models.ManyToManyField(to='task3.buyer')),
             ],
         ),
     ]
