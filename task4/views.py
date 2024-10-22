@@ -7,8 +7,8 @@ from task4.models import *
 
 
 def news(request):
-    posts = GameNews.objects.all()
-    paginator = Paginator(posts, 1)
+    posts = GameNews.objects.all().order_by('-published_date')
+    paginator = Paginator(posts, 2)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
@@ -28,13 +28,13 @@ def task4db(request):
         title="Первая статья",
         content="Содержание первой статьи",
         author="admin",
-        published_date=date(2024, 10, 8),
+        published_date=date(2021, 10, 8),
     )
     GameNews.objects.create(
         title="Вторая статья",
         content="Содержание второй статьи",
         author="user1",
-        published_date=date(2023, 5, 10),
+        published_date=date(2022, 5, 10),
     )
     GameNews.objects.create(
         title="Третья статья",
@@ -43,10 +43,16 @@ def task4db(request):
         published_date=date.today(),
     )
     GameNews.objects.create(
+        title="Четвёртая статья",
+        content="Содержание четвертой статьи",
+        author="adm",
+        published_date=date(2024, 1, 1),
+    )
+    GameNews.objects.create(
         title="Пятая статья",
         content="Содержание пятой статьи",
         author="admin",
-        published_date=date.today(),
+        published_date=date(2023, 1, 1),
     )
 
     return redirect('news')  # Перенаправление на страницу авторизации
